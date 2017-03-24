@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>Margines JS</title>
+<link rel="stylesheet" type="text/css" href="theme.css">
+</head>
+<body>
+    <div id="sb" style="width:300px;height:300px;">
+    </div>
+      <script>
+      var docelowyMargin = (window.innerHeight - parseInt(document.getElementById('sb').style.height))/2;
+      alert("Wysokoœæ okna:"+window.innerHeight+"\n"+
+            "Szerokoœæ okna:"+window.innerWidth+"\n"+
+            "¯¹dany margines: "+ docelowyMargin);
+          document.getElementById('sb').style.marginTop = docelowyMargin+"px";
+      </script>
+</body>
+</html>

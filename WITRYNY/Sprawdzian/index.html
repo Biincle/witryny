@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sprawdzian - Canvas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+    function ustawNaSrodku(){
+      ctx.moveTo(500,250);
+    }
+
+    function moveDown(){
+      var pisak = document.getElementById('pisak').value;
+      if(pisak == 'opuszczony'){
+        document.getElementById('pisak').value = 'podsniesiony';
+      }else{
+        document.getElementById('pisak').value = 'opuszczony';
+      }
+    }
+      function gora(){
+        //FUNCKAJ W GORE
+        var y = parseInt(document.getElementById('y').value);
+        y = y-1;
+        y = parseInt(document.getElementById('y').value = y);
+
+
+var x=parseInt(document.getElementById('x').value);
+        var pisak = document.getElementById('pisak').value;
+        if(pisak == 'opuszczony'){
+          ctx.lineTo(x,y);
+          ctx.stroke();
+        }else if(pisak =='podsniesiony'){
+          ctx.moveTo(x,y);
+        }
+
+
+      }
+      function lewo(){
+        //Funckaj W LEWO
+        var x = parseInt(document.getElementById('x').value);
+        x = x-1;
+        x = parseInt(document.getElementById('x').value = x);
+        var pisak = document.getElementById('pisak').value;
+        var y=parseInt(document.getElementById('y').value);
+        if(pisak == 'opuszczony'){
+          ctx.lineTo(x,y);
+          ctx.stroke();
+        }else if(pisak =='podsniesiony'){
+          ctx.moveTo(x,y);
+        }
+      }
+      function pisak(){
+        //PISAK PODSNIONY, PISAK OPUSZCZONY
+        var pisak = document.getElementById('pisak').value;
+
+      }
+      function prawo(){
+        // FUNCKJA W PRAWO
+        var x = parseInt(document.getElementById('x').value);
+        x= x+1;
+        x = parseInt(document.getElementById('x').value = x);
+
+
+        var pisak = document.getElementById('pisak').value;
+        var y=parseInt(document.getElementById('y').value);
+        if(pisak == 'opuszczony'){
+          ctx.lineTo(x,y);
+          ctx.stroke();
+        }else if(pisak =='podsniesiony'){
+          ctx.moveTo(x,y);
+        }
+      }
+      function dol(){
+        // FUNKCJA W DÓŁ
+        var y = parseInt(document.getElementById('y').value);
+        y = y+1;
+        y = parseInt(document.getElementById('y').value = y);
+        var pisak = document.getElementById('pisak').value;
+        var x=parseInt(document.getElementById('x').value);
+        if(pisak == 'opuszczony'){
+          ctx.lineTo(x,y);
+          ctx.stroke();
+        }else if(pisak =='podsniesiony'){
+          ctx.moveTo(x,y);
+        }
+      }
+      </script>
+  </head>
+  <body>
+
+    <canvas id="myCanvas" width="1000" height="500" style="border:1px solid #000000;">
+    </canvas>
+
+  </body>
+
+  <table>
+  <tr>
+    <th></th>
+    <th><button type="button" name="button" onclick="gora()">góra</button></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><button type="button" name="button" onclick="lewo()">lewo</button></td>
+    <td><button type="button" name="button" onclick="moveDown()">on/off</button></td>
+    <td><button type="button" name="button" onclick="prawo()">prawo</button></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button type="button" name="button" onclick="dol()">doł</button></td>
+    <td></td>
+  </tr>
+  </table>
+  x:<input type="text" id="x" size="1" value="500">
+  y:<input type="text" id="y" size="1" value="250"><br>
+  Pisak:<input type="text" id="pisak" value="opuszczony">
+
+  <script>
+  var c = document.getElementById('myCanvas');
+  var ctx = c.getContext("2d");
+  ustawNaSrodku();
+
+  </script>
+</html>
