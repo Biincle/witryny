@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Memory</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+        <script type="text/javascript">
+var ostatniObrazek = "";
+var odkryte = 0;
+         // Funkcja losująca obrazki
+    var obrazki = ['obrazek_1.png', 'obrazek_2.png', 'obrazek_3.png', 'obrazek_4.png', 'obrazek_5.png', 'obrazek_6.png', 'obrazek_7.png', 'obrazek_8.png', 'obrazek_1.png', 'obrazek_2.png', 'obrazek_3.png', 'obrazek_4.png', 'obrazek_5.png', 'obrazek_6.png', 'obrazek_7.png', 'obrazek_8.png'];
+    $(document).ready(function(){
+        $(".przycisk").click(function(){
+          $('.obrazek').each(function() {
+
+
+       var los = obrazki[Math.floor(Math.random()* obrazki.length)];
+      img = $(this);
+      // img.attr('src', los);
+      img.attr('alt', img.attr('src'));
+      img.attr("data-obrazek", los);
+
+      var itemtoRemove = los;
+       obrazki.splice($.inArray(itemtoRemove, obrazki),1);
+
+
+    });
+        });
+
+        $('.obrazek').click(function(){
+        img = $(this);
+        obrazek = img.attr('data-obrazek');
+        console.log("obecny: "+obrazek+" ostatni:"+ostatniObrazek);
+        img.attr('src', obrazek);
+        if(ostatniObrazek == ""){
+
+          ostatniObrazek = obrazek;
+        //  odkryte = odkryte +1;
+      }else if(ostatniObrazek == obrazek){
+
+
+          alert("win!");
+        } else {
+          ostatniObrazek = "";
+          $('.obrazek').attr('src', "back.png");
+        }
+
+
+
+
+
+
+
+
+
+
+      });
+
+
+
+
+      });
+
+      // Funkcja losująca obrazki
+
+
+
+
+
+
+
+
+        </script>
+  </head>
+  <body>
+
+      <div class="plansza">
+        <!-- /1-->
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"/></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1"  class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <!-- /1-->
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <!-- /1-->
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+
+          <!-- /1-->
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+          <div class="kafelek"><img src="back.png" alt="test" data-obrazek="1" class="obrazek"></div>
+      </div>
+
+      <button type="button" name="button" class="przycisk">Losuj</button>
+
+  </body>
+</html>

@@ -1,0 +1,21 @@
+div.plansza{
+  width:550px;
+  margin:0 auto;
+}
+
+.kafelek{
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 10px;
+}
+.obrazki{
+  width: 100%;
+  height: 100%;
+  margin:0 auto;
+}
+.obrazek{
+  width: 100px;
+  height: 100px;
+  
+}
