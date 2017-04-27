@@ -6,17 +6,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="popup/dist/remodal.css">
-    <link rel="stylesheet" href="popup/dist/remodal-default-theme.css">
-    <script src="popup/dist/remodal.min.js"></script>
         <script type="text/javascript">
 var ostatniObrazek = "";
 var current = "";
 var ruch = 0;
 var pkt = 0;
+var zostalo = 16;
          // Funkcja losująca obrazki
-    var obrazki = ['obrazek_1.png', 'obrazek_2.png', 'obrazek_3.png', 'obrazek_4.png', 'obrazek_5.png', 'obrazek_6.png', 'obrazek_7.png', 'obrazek_8.png', 'obrazek_1.png', 'obrazek_2.png', 'obrazek_3.png', 'obrazek_4.png', 'obrazek_5.png', 'obrazek_6.png', 'obrazek_7.png', 'obrazek_8.png'];
+    var obrazki = [
+     'obrazek_1.png',
+     'obrazek_2.png',
+     'obrazek_3.png',
+     'obrazek_4.png',
+     'obrazek_5.png',
+     'obrazek_6.png',
+     'obrazek_7.png',
+     'obrazek_8.png',
+     'obrazek_1.png',
+     'obrazek_2.png',
+     'obrazek_3.png',
+     'obrazek_4.png',
+     'obrazek_5.png',
+     'obrazek_6.png',
+     'obrazek_7.png',
+     'obrazek_8.png'];
     $(document).ready(function(){
+
           $('.obrazek').each(function() {
 
 
@@ -38,20 +53,25 @@ var pkt = 0;
         console.log("obecny: "+obrazek+" ostatni:"+ostatniObrazek);
         dodajRuch();
         img.attr('src', obrazek);
+
         var id = img.attr('data-id');
         if(ostatniObrazek == ""){
 
           ostatniObrazek = obrazek;
           current = id;
-      }else if(ostatniObrazek == obrazek && current != id){
+      }else if(ostatniObrazek == obrazek && current != id)
+      {
                 dodajPunkty();
+                zostalo = zostalo -2;
+                console.log("Do odgadniecia zostalo: " + zostalo);
+                if(zostalo == 0){koniec();}
               $(this).removeClass( "obrazek" ).addClass( "wygrana" );
-              $(".obrazek").each(function(){
-                test = $(this);
-                if(test.attr('src') == ostatniObrazek){
-                  $(this).removeClass( "obrazek" ).addClass( "wygrana" );
-                }
-            });
+                $(".obrazek").each(function(){
+                  test = $(this);
+                  if(test.attr('src') == ostatniObrazek){
+                    $(this).removeClass( "obrazek" ).addClass( "wygrana" );
+                  }
+              });
 
               ostatniObrazek = "";
               current = "";
@@ -87,11 +107,23 @@ var pkt = 0;
 
           }
 
+          function koniec(){
+            setTimeout(function(){
+              $('.plansza').hide();
+             $('.test').removeClass('ukryj');
+
+         }, 200);
+         var iloscPkt = pkt.toFixed(2);
+         var iloscProb = ruch;
+          $('#iloscPkt').text(iloscPkt);
+          $('#iloscProb').text(iloscProb);
+          }
           function dodajRuch(){
             ruch = ruch+1;
           $('#ruchy').text(ruch);
 
           }
+
 
 
 
@@ -145,6 +177,20 @@ var pkt = 0;
               <span id="ruchy">0</span>
           </div>
 
+      </div>
+      <div class="test ukryj" style="width:500px;height:250px;margin:0 auto;color:#fff;margin-top:20px;">
+          <h2 style="text-align:center;font-family:'Arial';">Koniec gry!</h4>
+          <div class="podsumowanie">
+              <div class="punkty">
+                Zdobyta ilość punktów w grze: <br/>
+                <span id="iloscPkt">0</span>
+              </div>
+              <div class="iloscRuchow">
+                  Wykonana ilość ruchów w grze: <br />
+                <span id="iloscProb">0</span>
+              </div>
+          </div>
+        <button type="button" onclick="location.reload()" style="margin-left:150px;">Zagraj Ponownie</button>
       </div>
 
 

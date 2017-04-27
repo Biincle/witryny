@@ -49,3 +49,63 @@ div.plansza{
   margin-left: 35px;
 }
 .ruchy > span{font-weight: bold;font-size: 15px;font-family: 'Arial';color:#ecf0f1;}
+
+
+.ukryj{
+  display: none;
+}
+button{
+  width: 200px;
+  height: 55px;
+  background-color: #27ae60;
+  color:white;
+  font-family: 'Arial';
+  font-weight: bold;
+  border: 1px solid #27ae60;
+  border-radius: 3px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
+}
+.podsumowanie{
+  width: 80%;
+  height: 200px;
+  margin:0 auto;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Arial';
+  font-size: 17px;
+}
+.punkty{
+  width: 100%;
+  height: 70px;
+}
+.punkty > span{
+  font-size: 20px;
+  font-weight: bold;
+}
+.iloscRuchow{
+  width: 100%;
+  height: 70px;
+}
+.iloscRuchow > span{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.kafelek{
+  animation-duration: 2s;
+  animation-name: bounceIn;
+}
